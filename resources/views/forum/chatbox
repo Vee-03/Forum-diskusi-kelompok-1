@@ -1,0 +1,339 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Forum SMEA - Messages
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Scrollbar for messages */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: rgba(100, 116, 139, 0.5);
+      border-radius: 3px;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 flex min-h-screen">
+  <!-- Sidebar -->
+  <aside aria-label="Sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-blue-900 text-white flex flex-col transition-transform transform -translate-x-full md:translate-x-0">
+   <div class="flex items-center space-x-3 px-6 py-6 border-b border-blue-700">
+    <img alt="Logo SMEA, a blue and white circular emblem with stylized letters SMEA" class="w-14 h-14 object-contain rounded-full shadow-md" height="56" src="https://storage.googleapis.com/a1aa/image/8e74d67e-082c-464a-3835-20851ae42fe7.jpg" width="56"/>
+    <span class="text-2xl font-bold tracking-wide select-none">
+     Forum SMEA
+    </span>
+   </div>
+   <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto" role="navigation">
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg transition transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white" href="#">
+     <i class="fas fa-home w-5">
+     </i>
+     Beranda
+    </a>
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg transition transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white" href="#">
+     <i class="fas fa-comments w-5">
+     </i>
+     Diskusi
+    </a>
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg transition transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white" href="#">
+     <i class="fas fa-bullhorn w-5">
+     </i>
+     Pengumuman
+    </a>
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg transition transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white" href="#">
+     <img alt="User profile picture of a young man with short black hair, smiling" class="w-8 h-8 rounded-full object-cover border-2 border-white" height="32" src="https://storage.googleapis.com/a1aa/image/1b35c948-bb93-46d1-2cd1-86b2f82bbd3b.jpg" width="32"/>
+     Profil
+    </a>
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg bg-blue-800" href="#">
+     <i class="fas fa-envelope w-5">
+     </i>
+     Pesan
+    </a>
+    <a class="flex items-center gap-4 px-4 py-3 rounded-lg font-semibold text-lg transition transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white" href="#">
+     <i class="fas fa-cogs w-5">
+     </i>
+     Admin Page
+    </a>
+   </nav>
+   <footer class="px-6 py-4 border-t border-blue-700 text-sm text-blue-300 select-none">
+    © 2024 Forum SMEA. All rights reserved.
+   </footer>
+  </aside>
+  <!-- Main Content -->
+  <main class="flex-1 ml-0 md:ml-64 flex flex-col bg-white shadow-inner">
+   <!-- Header -->
+   <header class="flex items-center justify-between border-b border-gray-200 px-6 py-4 sticky top-0 bg-white z-10">
+    <h1 class="text-xl font-semibold text-gray-900">
+     Pesan
+    </h1>
+    <button aria-label="Open contacts sidebar" class="md:hidden text-blue-900 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded" id="openContacts">
+     <i class="fas fa-users fa-lg">
+     </i>
+    </button>
+   </header>
+   <div class="flex flex-1 overflow-hidden h-[calc(100vh-64px)]">
+    <!-- Contacts List (Left Panel) -->
+    <section class="hidden md:flex flex-col w-72 border-r border-gray-200 bg-gray-50" id="contactsPanel">
+     <div class="px-4 py-3 border-b border-gray-200 font-semibold text-gray-700 text-lg select-none">
+      Kontak
+     </div>
+     <div class="flex-1 overflow-y-auto scrollbar-thin">
+      <ul>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg bg-blue-100">
+        <img alt="Profile picture of a young woman with long brown hair and glasses, smiling" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/eee49d5c-8586-47b6-5bf3-6c56d4a97e33.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Anna Wibowo
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 2 jam lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full" title="Online">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a man with short black hair and beard, wearing glasses" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/162ae9be-b54a-47f7-5d20-a38709cb4ef5.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Rizky Budi
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 1 hari lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-gray-400 rounded-full" title="Offline">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a young woman with curly hair and bright smile" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/dfca87b1-6cec-4e9b-6634-399a18b4be73.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Maya Sari
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 3 jam lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full" title="Online">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a man with short hair and a friendly smile" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/71a52bc8-c369-48f3-89db-0ab27844f7c5.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Aditya Dharma
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 5 menit lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full" title="Online">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a woman with short hair and a warm smile" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/f48ed309-4959-4268-83ce-53aefdbc820b.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Lina Sari
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 12 jam lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-gray-400 rounded-full" title="Offline">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a man with glasses and a beard, smiling" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/9057ea49-e9e7-4a76-c4ac-02faa76ac3dd.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Joko Mulyono
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 4 hari lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-gray-400 rounded-full" title="Offline">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a young woman with long black hair and a bright smile" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/2153b31a-5e63-4fa8-595d-5f5fd4094e3b.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Rina Sari
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 30 menit lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full" title="Online">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a man with short hair and a serious expression" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/f0e7c84d-d7ad-4f3b-78c5-4f839d293700.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Dedi Prasetyo
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 1 jam lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full" title="Online">
+        </div>
+       </li>
+       <li class="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-blue-100 transition rounded-r-lg">
+        <img alt="Profile picture of a woman with curly hair and glasses, smiling" class="w-12 h-12 rounded-full object-cover" height="48" src="https://storage.googleapis.com/a1aa/image/ed8763d9-1ee1-4e2d-4728-770ba1221766.jpg" width="48"/>
+        <div class="flex flex-col flex-1">
+         <span class="font-semibold text-gray-900 truncate">
+          Eka Sari
+         </span>
+         <span class="text-sm text-gray-500 truncate">
+          Terakhir aktif 2 hari lalu
+         </span>
+        </div>
+        <div class="w-3 h-3 bg-gray-400 rounded-full" title="Offline">
+        </div>
+       </li>
+      </ul>
+     </div>
+    </section>
+    <!-- Chat Area (Right Panel) -->
+    <section class="flex flex-col flex-1 bg-white">
+     <div aria-label="Chat messages" class="flex flex-col flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin" id="chatMessages" tabindex="0">
+      <!-- Message from contact -->
+      <div class="flex items-start space-x-3 max-w-xl">
+       <img alt="Profile picture of Anna Wibowo, a young woman with long brown hair and glasses, smiling" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/866bcb1a-8ccc-492e-f8ac-feea28f5de0f.jpg" width="40"/>
+       <div>
+        <div class="bg-gray-100 text-gray-900 p-3 rounded-lg rounded-tl-none max-w-xs md:max-w-md break-words">
+         Hai, bagaimana kabarmu hari ini?
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block">
+         10:15 AM
+        </span>
+       </div>
+      </div>
+      <!-- Message from user -->
+      <div class="flex items-start space-x-3 max-w-xl ml-auto justify-end">
+       <div>
+        <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none max-w-xs md:max-w-md break-words">
+         Baik, terima kasih! Kamu sendiri bagaimana?
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block text-right">
+         10:17 AM
+        </span>
+       </div>
+       <img alt="Profile picture of current user, a man with short black hair and beard, wearing glasses" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/97b93fe5-f5cc-4dbc-17ac-ba4b118cf64d.jpg" width="40"/>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl">
+       <img alt="Profile picture of Anna Wibowo, a young woman with long brown hair and glasses, smiling" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/866bcb1a-8ccc-492e-f8ac-feea28f5de0f.jpg" width="40"/>
+       <div>
+        <div class="bg-gray-100 text-gray-900 p-3 rounded-lg rounded-tl-none max-w-xs md:max-w-md break-words">
+         Aku baik juga, terima kasih sudah bertanya. Ada yang bisa kubantu?
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block">
+         10:18 AM
+        </span>
+       </div>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl ml-auto justify-end">
+       <div>
+        <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none max-w-xs md:max-w-md break-words">
+         Sebenarnya aku ingin berdiskusi tentang proyek terbaru kita.
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block text-right">
+         10:20 AM
+        </span>
+       </div>
+       <img alt="Profile picture of current user, a man with short black hair and beard, wearing glasses" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/97b93fe5-f5cc-4dbc-17ac-ba4b118cf64d.jpg" width="40"/>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl">
+       <img alt="Profile picture of Anna Wibowo, a young woman with long brown hair and glasses, smiling" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/866bcb1a-8ccc-492e-f8ac-feea28f5de0f.jpg" width="40"/>
+       <div>
+        <div class="bg-gray-100 text-gray-900 p-3 rounded-lg rounded-tl-none max-w-xs md:max-w-md break-words">
+         Tentu, aku siap membantu. Apa yang ingin kamu diskusikan?
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block">
+         10:22 AM
+        </span>
+       </div>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl ml-auto justify-end">
+       <div>
+        <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none max-w-xs md:max-w-md break-words">
+         Kita perlu menentukan deadline dan pembagian tugas.
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block text-right">
+         10:25 AM
+        </span>
+       </div>
+       <img alt="Profile picture of current user, a man with short black hair and beard, wearing glasses" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/97b93fe5-f5cc-4dbc-17ac-ba4b118cf64d.jpg" width="40"/>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl">
+       <img alt="Profile picture of Anna Wibowo, a young woman with long brown hair and glasses, smiling" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/866bcb1a-8ccc-492e-f8ac-feea28f5de0f.jpg" width="40"/>
+       <div>
+        <div class="bg-gray-100 text-gray-900 p-3 rounded-lg rounded-tl-none max-w-xs md:max-w-md break-words">
+         Baik, aku akan buatkan draft pembagian tugas dan kirimkan segera.
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block">
+         10:27 AM
+        </span>
+       </div>
+      </div>
+      <div class="flex items-start space-x-3 max-w-xl ml-auto justify-end">
+       <div>
+        <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none max-w-xs md:max-w-md break-words">
+         Terima kasih banyak, Anna!
+        </div>
+        <span class="text-xs text-gray-400 mt-1 block text-right">
+         10:28 AM
+        </span>
+       </div>
+       <img alt="Profile picture of current user, a man with short black hair and beard, wearing glasses" class="w-10 h-10 rounded-full object-cover" height="40" src="https://storage.googleapis.com/a1aa/image/97b93fe5-f5cc-4dbc-17ac-ba4b118cf64d.jpg" width="40"/>
+      </div>
+     </div>
+     <!-- Message Input -->
+     <form aria-label="Send message form" class="border-t border-gray-200 p-4 flex items-center space-x-4">
+      <button class="text-gray-400 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded" type="button">
+       <i class="fas fa-paperclip fa-lg">
+       </i>
+       <span class="sr-only">
+        Attach file
+       </span>
+      </button>
+      <input aria-label="Message input" class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Ketik pesan..." type="text"/>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4 py-2 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600" type="submit">
+       Kirim
+      </button>
+     </form>
+    </section>
+   </div>
+  </main>
+  <script>
+   // Toggle contacts panel on mobile
+    const openContactsBtn = document.getElementById('openContacts');
+    const contactsPanel = document.getElementById('contactsPanel');
+
+    openContactsBtn.addEventListener('click', () => {
+      if (contactsPanel.classList.contains('hidden')) {
+        contactsPanel.classList.remove('hidden');
+      } else {
+        contactsPanel.classList.add('hidden');
+      }
+    });
+  </script>
+ </body>
+</html>

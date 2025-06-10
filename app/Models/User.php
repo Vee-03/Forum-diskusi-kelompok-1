@@ -17,10 +17,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
+    protected $primarykey = 'id';
     protected $fillable = [
-        'name',
+        'username',
+        'nama_lengkap',
         'email',
         'password',
+        'role',
+        'description',
+        'foto_profile',
     ];
 
     /**
@@ -41,4 +47,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function followedForums()
+    {
+        return $this->belongsToMany(Forum::class, 'forum_user', 'user_id', 'forum_id')->withTimestamps();
+    }
+
+    public function diskusi() {
+        return $this->hasMany(Diskusi::class);
+    }
+
+    public function pengumuman()
+    {
+        return $this->hasMany(Pengumuman::class,'user_id');
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
+
 }

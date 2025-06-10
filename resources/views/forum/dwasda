@@ -1,0 +1,20 @@
+@foreach ($aktivitas as $aktiv)
+            @if ($aktiv->type == 'diskusi')
+                <h5 class="text-xl font-semibold text-blue-900 mb-2 truncate">
+                    Membuat diskusi baru: "{{ $aktiv->title }}"
+                </h5>
+                {{-- Bisa tampilkan ringkasan diskusi atau lainnya --}}
+            @elseif ($aktiv->type == 'komentar')
+                <h5 class="text-xl font-semibold text-blue-900 mb-2 truncate">
+                    Mengomentari diskusi: "{{ $aktiv->diskusi->judul ?? 'Diskusi Tidak Diketahui' }}"
+                </h5>
+                <p class="text-gray-700 leading-relaxed line-clamp-2">
+                    {{ \Illuminate\Support\Str::limit($aktiv->isi, 100) }}
+                </p>
+            @endif
+            </div>
+            <time class="text-gray-500 text-sm mt-4 md:mt-0 md:ml-6 whitespace-nowrap">
+              {{ $aktiv->created_at->diffForHumans() }}
+            </time>
+          </li>
+          @endforeach
